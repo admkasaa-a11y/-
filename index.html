@@ -70,6 +70,15 @@
         .server-btn:hover, .server-btn.active {
             background: #eab308; color: black;
         }
+        /* جدول المباريات */
+        .match-table {
+            width: 100%; border-collapse: collapse; margin-top: 10px; text-align: center;
+        }
+        .match-table th, .match-table td {
+            padding: 12px; border: 1px solid #334155;
+        }
+        .match-table th { background-color: #2563eb; color: white; }
+        .match-table tr:nth-child(even) { background-color: #0f172a; }
     </style>
 </head>
 <body>
@@ -100,30 +109,50 @@
     <div id="vipContent" class="main-layout" style="display: none;">
         <div style="text-align: center; margin-bottom: 10px;">
             <h1 style="color: #eab308; margin: 0; font-size: 32px;">👑 مـنـصـة MADRID STAR الـمـبـاشـرة 👑</h1>
-            <p style="color: #a7f3d0; margin-top: 5px;">بث مباشر للمباريات وشات مدريدي 24 ساعة بدون توقف</p>
+            <p style="color: #a7f3d0; margin-top: 5px;">بث مباشر للمباريات وشات مدريدي ملتهب</p>
         </div>
 
         <div class="grid-container">
             <div class="box">
-                <h3 style="color: #60a5fa; margin-top: 0; border-bottom: 2px solid #334155; padding-bottom: 8px;">📺 مشغل البث المباشر الرئيسي</h3>
+                <h3 style="color: #60a5fa; margin-top: 0; border-bottom: 2px solid #334155; padding-bottom: 8px;">📺 مشغل البث المباشر للقنوات الرياضية</h3>
                 
                 <div style="margin-bottom: 10px;">
-                    <span style="font-weight: bold; color: #94a3b8;">اختر السيرفر:</span>
-                    <button class="server-btn active" onclick="changeStream('https://www.youtube.com/embed/live_stream?channel=UC4X_Iym3Mh9f-9HlFmS7v_g', this)">سيرفر 1 (الرئيسي)</button>
-                    <button class="server-btn" onclick="changeStream('https://www.youtube.com/embed/placeholder2', this)">سيرفر 2</button>
-                    <button class="server-btn" onclick="changeStream('https://www.youtube.com/embed/placeholder3', this)">سيرفر 3</button>
+                    <span style="font-weight: bold; color: #94a3b8;">اختر القناة ناقلة المباراة:</span>
+                    <button class="server-btn active" onclick="changeStream('https://lovesports. some-stream-provider.../live1', this)">beIN SPORTS 1</button>
+                    <button class="server-btn" onclick="changeStream('https://lovesports. some-stream-provider.../live2', this)">beIN SPORTS 2</button>
                 </div>
 
                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000;">
-                    <iframe id="matchPlayer" src="https://www.youtube.com/embed/live_stream?channel=UC4X_Iym3Mh9f-9HlFmS7v_g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+                    <iframe id="matchPlayer" src="https://www.youtube.com/embed/5Peo-ivmupE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
                 </div>
-                <p style="font-size: 13px; color: #94a3b8; margin-top: 8px; margin-bottom: 0;">ℹ️ ملاحظة: إذا انقطع البث، قم بتبديل السيرفر من الأزرار في الأعلى.</p>
             </div>
 
-            <div class="box" style="display: flex; flex-direction: column; height: 500px;">
-                <h3 style="color: #eab308; margin-top: 0; border-bottom: 2px solid #334155; padding-bottom: 8px;">💬 شات مدريديستا المباشر</h3>
-                <iframe src="https://www5.cbox.ws/box/?boxid=954005&boxtag=madrid" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" style="border-radius: 8px; background: #0f172a;"></iframe>
+            <div class="box" style="display: flex; flex-direction: column; height: 450px;">
+                <h3 style="color: #eab308; margin-top: 0; border-bottom: 2px solid #334155; padding-bottom: 8px;">💬 شات مدريديستا الفوري</h3>
+                <iframe src="https://minnit.chat/MadridStar?embed&&nickname=" style="width:100%; height:100%; border:none;" allowtransparency="true"></iframe>
             </div>
+        </div>
+
+        <div class="box">
+            <h3 style="color: #eab308; margin-top: 0; border-bottom: 2px solid #334155; padding-bottom: 8px;">📅 جدول مباريات ريال مدريد القادمة (يونيو 2026)</h3>
+            <table class="match-table">
+                <thead>
+                    <tr>
+                        <th>المباراة</th>
+                        <th>البطولة / الحدث</th>
+                        <th>التاريخ والوقت</th>
+                        <th>حالة البث في الموقع</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold; color: #60a5fa;">مباريات وتجهيزات الموسم الجديد 🆚 -</td>
+                        <td>وديات / التحضيرات الصيفية</td>
+                        <td>خلال الشهر</td>
+                        <td style="color: #4ade80; font-weight: bold;">🔴 سيتوفر البث تلقائياً هنا</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -132,7 +161,6 @@ function verifyCustomCodes() {
     const code1 = document.getElementById('firstCode').value.trim();
     const code2 = document.getElementById('secondCode').value.trim();
     
-    // الأكواد المطابقة تماماً
     if (code1 === "k1ngx8810j" && code2 === "ma88109l") {
         document.getElementById('authContent').style.display = 'none'; 
         document.getElementById('vipContent').style.display = 'flex'; 
@@ -144,10 +172,8 @@ function verifyCustomCodes() {
     }
 }
 
-// سكريبت ذكي لتغيير روابط البث المباشر عند الضغط على الأزرار
 function changeStream(url, btn) {
     document.getElementById('matchPlayer').src = url;
-    // تغيير شكل الزر النشط
     const buttons = document.getElementsByClassName('server-btn');
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove('active');
